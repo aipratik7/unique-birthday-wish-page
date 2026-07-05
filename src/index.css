@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&family=Caveat:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-fun: 'Fredoka', ui-sans-serif, system-ui, sans-serif;
+  --font-script: 'Pacifico', cursive;
+}
+
+/* ─────────── Keyframes ─────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(4deg); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(-4deg); }
+}
+@keyframes rise {
+  0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { transform: translateY(-15vh) rotate(30deg); opacity: 0; }
+}
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1) scaleX(1) translateX(0); opacity: 1; }
+  25% { transform: scaleY(1.15) scaleX(0.9) translateX(-1px); opacity: 0.9; }
+  50% { transform: scaleY(0.95) scaleX(1.05) translateX(1px); opacity: 1; }
+  75% { transform: scaleY(1.1) scaleX(0.95) translateX(-1px); opacity: 0.85; }
+}
+@keyframes bounce-in {
+  0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+  55% { transform: scale(1.2) rotate(6deg); }
+  75% { transform: scale(0.92) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+@keyframes shake-hard {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  20% { transform: translateX(-6px) rotate(-3deg); }
+  40% { transform: translateX(6px) rotate(3deg); }
+  60% { transform: translateX(-5px) rotate(-2deg); }
+  80% { transform: translateX(5px) rotate(2deg); }
+}
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes shimmer-text {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes slide-up {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes tada {
+  0% { transform: scale(1); }
+  10%, 20% { transform: scale(0.9) rotate(-4deg); }
+  30%, 50%, 70%, 90% { transform: scale(1.15) rotate(4deg); }
+  40%, 60%, 80% { transform: scale(1.15) rotate(-4deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+/* ─────────── Utility animation classes ─────────── */
+.animate-float { animation: float 5s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+.animate-flicker { animation: flicker 0.25s ease-in-out infinite; transform-origin: bottom center; }
+.animate-bounce-in { animation: bounce-in 0.7s cubic-bezier(0.68,-0.55,0.27,1.55) forwards; }
+.animate-pop { animation: pop 0.4s ease-in-out; }
+.animate-wiggle { animation: wiggle 0.5s ease-in-out infinite; }
+.animate-shake-hard { animation: shake-hard 0.6s ease-in-out; }
+.animate-slide-up { animation: slide-up 0.6s ease-out forwards; }
+.animate-spin-slow { animation: spin-slow 18s linear infinite; }
+.animate-tada { animation: tada 1s ease-in-out; }
+.animate-pulse-ring { animation: pulse-ring 1.5s ease-out infinite; }
+
+/* ─────────── Special text ─────────── */
+.rainbow-text {
+  background: linear-gradient(90deg, #ff5f6d, #ffc371, #ffe259, #7ee8fa, #eec0c6, #ff5f6d);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-text 4s linear infinite;
+}
+
+.party-bg {
+  background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a18cd1, #fbc2eb, #ffecd2, #fcb69f);
+  background-size: 400% 400%;
+  animation: gradient-move 12s ease infinite;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #fff0f5; }
+::-webkit-scrollbar-thumb { background: linear-gradient(#ff6ec4, #7873f5); border-radius: 4px; }
